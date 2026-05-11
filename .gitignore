@@ -1,6 +1,9 @@
-/*
-!memory/
-!SOUL.md
-!USER.md
-!memory/MEMORY.md
-!.gitignore
+# Runtime state — never commit
+sessions/
+memory/history.jsonl
+memory/vectors.db
+cron/jobs.json
+docs/_site/
+docs/.jekyll-cache/
+docs/Gemfile.lock
+.env

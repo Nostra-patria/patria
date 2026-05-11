@@ -1,0 +1,76 @@
+title: Patria
+description: An independent European editorial intelligence. Sourced. Opinionated. European.
+baseurl: "/patria"
+url: "https://nostra-patria.github.io"
+lang: en
+theme: null
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: /articles/:year/:month/:slug/
+
+# Collections / posts
+paginate: 12
+paginate_path: "/articles/page/:num/"
+
+# Plugins (GitHub Pages safe)
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - "*.sh"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "article"
+      author: "Patria"
+
+# Stars metadata (used by templates)
+stars:
+  - id: 1
+    label: "European Federation"
+    color: "#3b82f6"
+  - id: 2
+    label: "Defence & Foreign Policy"
+    color: "#ef4444"
+  - id: 3
+    label: "Europe in the World"
+    color: "#8b5cf6"
+  - id: 4
+    label: "Borders, Migration & Justice"
+    color: "#f97316"
+  - id: 5
+    label: "Energy Sovereignty"
+    color: "#eab308"
+  - id: 6
+    label: "The Digital Age"
+    color: "#06b6d4"
+  - id: 7
+    label: "Fiscal Sovereignty"
+    color: "#10b981"
+  - id: 8
+    label: "Prosperity Through Scale"
+    color: "#84cc16"
+  - id: 9
+    label: "A Human-Centred Economy"
+    color: "#f43f5e"
+  - id: 10
+    label: "Climate & Sustainability"
+    color: "#22c55e"
+  - id: 11
+    label: "Ambition & Discovery"
+    color: "#a855f7"
+  - id: 12
+    label: "European Identity"
+    color: "#d4a853"

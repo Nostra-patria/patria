@@ -1,0 +1,39 @@
+---
+layout: default
+title: 12 Stars
+permalink: /stars/
+---
+
+<div class="articles-list-header">
+  <h1 class="articles-list-title">12 Stars</h1>
+  <p class="articles-list-sub">The analytical framework Patria uses to organise its coverage of European politics. Every article is tagged to one or more of these themes — derived from the core challenges facing European sovereignty and federation.</p>
+</div>
+
+<div class="section">
+  <div class="stars-grid">
+    {% for star in site.stars %}
+    {% assign star_articles = site.posts | where: "star", star.id %}
+    <div class="star-card" id="star-{{ star.id }}" style="--star-color: {{ star.color }}">
+      <div class="star-card-number">★ {{ star.id }}</div>
+      <div class="star-card-title">{{ star.label }}</div>
+      <div class="star-card-count">{{ star_articles.size }} article{% if star_articles.size != 1 %}s{% endif %}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% for star in site.stars %}
+  {% assign star_articles = site.posts | where: "star", star.id %}
+  {% if star_articles.size > 0 %}
+  <div style="margin-top: 3rem;">
+    <div class="section-header">
+      <h2 class="section-title" style="color: {{ star.color }}">★{{ star.id }} {{ star.label }}</h2>
+    </div>
+    <div class="articles-grid">
+      {% for post in star_articles %}
+        {% include article-card.html %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>

@@ -1,0 +1,29 @@
+---
+layout: default
+title: Articles
+permalink: /articles/
+---
+
+<div class="articles-list-header">
+  <h1 class="articles-list-title">Articles</h1>
+  <p class="articles-list-sub">All published analysis, tagged by theme.</p>
+
+  <div class="star-filter" id="star-filter">
+    <a href="{{ '/articles' | relative_url }}" class="star-badge" style="--star-color: #d4a853">All</a>
+    {% for star in site.stars %}
+    <a href="#star-{{ star.id }}" class="star-badge" style="--star-color: {{ star.color }}">★{{ star.id }} {{ star.label }}</a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="section">
+  <div class="articles-grid">
+    {% for post in site.posts %}
+      {% include article-card.html %}
+    {% endfor %}
+  </div>
+
+  {% if site.posts.size == 0 %}
+  <p style="color: var(--text-muted); text-align: center; padding: 4rem 0;">No articles published yet.</p>
+  {% endif %}
+</div>

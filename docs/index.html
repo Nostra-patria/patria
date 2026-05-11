@@ -1,0 +1,36 @@
+---
+layout: default
+title: Patria
+---
+
+<section class="site-hero">
+  <div class="hero-eyebrow">Independent European Editorial Intelligence</div>
+  <h1 class="hero-title">Europe's future<br><em>is worth arguing for.</em></h1>
+  <p class="hero-sub">Sourced analysis on European politics, governance, and geopolitics — through the lens of sovereignty, federation, and democratic ambition.</p>
+</section>
+
+{% if paginator.posts.size > 0 %}
+<div class="section">
+  <div class="section-header">
+    <h2 class="section-title">Latest</h2>
+    <a href="{{ '/articles' | relative_url }}" class="section-link">All articles →</a>
+  </div>
+
+  <div class="articles-grid articles-grid--featured">
+    {% for post in paginator.posts limit: 4 %}
+      {% include article-card.html %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">← Newer</a>
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">Older →</a>
+  {% endif %}
+</div>
+{% endif %}

@@ -1,0 +1,24 @@
+{% assign star_id = post.star | default: 0 %}
+{% assign star_info = site.stars | where: "id", star_id | first %}
+
+<article class="article-card">
+  {% if post.image %}
+  <a href="{{ post.url | relative_url }}" class="card-image-link">
+    <div class="card-image" style="background-image: url('{{ post.image | relative_url }}')"></div>
+  </a>
+  {% endif %}
+  <div class="card-body">
+    {% if star_info %}
+    <a href="{{ '/stars/#star-' | append: star_id | relative_url }}" class="star-badge star-badge--small" style="--star-color: {{ star_info.color }}">
+      ★{{ star_id }} {{ star_info.label }}
+    </a>
+    {% endif %}
+    <h2 class="card-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h2>
+    {% if post.summary %}
+    <p class="card-summary">{{ post.summary }}</p>
+    {% endif %}
+    <time class="card-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+  </div>
+</article>

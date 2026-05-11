@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+{% assign star_id = page.star | default: 0 %}
+{% assign star_info = site.stars | where: "id", star_id | first %}
+
+<article class="article-page">
+
+  <header class="article-header">
+    {% if page.image %}
+    <div class="article-hero">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
+    <div class="article-meta-top">
+      {% if star_info %}
+      <a href="{{ '/stars/#star-' | append: star_id | relative_url }}" class="star-badge" style="--star-color: {{ star_info.color }}">
+        ★{{ star_id }} {{ star_info.label }}
+      </a>
+      {% endif %}
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+    </div>
+
+    <h1 class="article-title">{{ page.title }}</h1>
+
+    {% if page.summary %}
+    <p class="article-summary">{{ page.summary }}</p>
+    {% endif %}
+  </header>
+
+  <div class="article-body">
+    {{ content }}
+  </div>
+
+  <footer class="article-footer">
+    <div class="article-footer-inner">
+      <div class="share-label">Share</div>
+      <div class="share-links">
+        <a href="https://bsky.app/intent/compose?text={{ page.title | uri_escape }}%20{{ page.url | absolute_url | uri_escape }}" target="_blank" rel="noopener">Bluesky</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url | uri_escape }}&title={{ page.title | uri_escape }}" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <a href="{{ '/articles' | relative_url }}" class="back-link">← All articles</a>
+  </footer>
+
+</article>
