@@ -1,12 +1,12 @@
 ---
 layout: article
 title: "The AI Act Paradox: When Ambition Outpaces Enforcement"
-date: 2026-05-12
+date: 2026-05-11
 star: 6
 star_label: "The Digital Age"
 slug: ai-act-paradox-ambition-enforcement
 summary: "The EU leads the world in AI legislation, but with only 8 of 27 states ready for enforcement, it risks becoming a regulatory ghost."
-image: /patria/assets/img/articles/2026-05-12-ai-act-paradox-ambition-enforcement-header.png
+image: /patria/assets/img/articles/2026-05-11-ai-act-paradox-ambition-enforcement-header.png
 ---
 
 # The AI Act Paradox: When Ambition Outpaces Enforcement
