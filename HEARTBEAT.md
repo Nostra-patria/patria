@@ -17,11 +17,11 @@ If no explicit tasks are listed, run the default editorial pipeline.
 ## Active Tasks
 
 <!-- Add priority tasks or manual triggers below this line -->
-**TEST RUN — website only**
-Run the full pipeline (scout → research → write → publish) but skip Bluesky, LinkedIn, and image generation.
-Publish the article to GitHub Pages only (git push to Nostra-patria/patria.git → docs/_posts/).
-Log what would have been posted to Bluesky and LinkedIn in memory/MEMORY.md instead.
-
+**FULL RUN — website + images**
+Run the full pipeline: scout → research → write → illustrate → publish.
+Generate 1 header image per article using the Grok Imagine API (skill: illustrator).
+Publish article + image to GitHub Pages (docs/_posts/ and docs/assets/img/articles/).
+Skip Bluesky and LinkedIn for now.
 
 ## Completed
 

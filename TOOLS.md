@@ -75,9 +75,14 @@ response = requests.post(
     "https://api.x.ai/v1/images/generations",
     headers={"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"},
     json={
-        "model": "grok-2-image",
+        "model": "grok-imagine-image-quality",  # NOT grok-2-image (deprecated)
         "prompt": "...",
         "n": 1,
+        "aspect_ratio": "16:9",   # header images; use "1:1" for social cards
+        "response_format": "b64_json"
+    },
+    timeout=120
+)
         "size": "1792x1024"  # header image
     }
 )
