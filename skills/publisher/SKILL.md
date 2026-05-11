@@ -38,10 +38,12 @@ def publish_website(slug: str) -> str:
     repo_url = f"https://{token}@github.com/Nostra-patria/patria.git"
     repo_dir = Path("/workspace/patria-site")
 
-    # Clone or pull
+    # Clone or pull — always set remote URL with token to ensure auth
     if not repo_dir.exists():
         subprocess.run(["git", "clone", repo_url, str(repo_dir)], check=True)
     else:
+        # Overwrite remote URL in case token was not embedded previously
+        subprocess.run(["git", "-C", str(repo_dir), "remote", "set-url", "origin", repo_url], check=True)
         subprocess.run(["git", "-C", str(repo_dir), "pull", "origin", "main"], check=True)
 
     # Copy article
