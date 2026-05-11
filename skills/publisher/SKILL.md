@@ -21,25 +21,53 @@ If a credential is missing: log to memory, publish to available platforms only, 
 
 ## 1. Website (GitHub Pages)
 
-```bash
-# Clone if not present
-if [ ! -d "patria-site" ]; then
-  git clone https://$GITHUB_TOKEN@github.com/Nostra-patria/patria.git patria-site/
-fi
+Use Python + subprocess — do NOT use shell scripts. The `GITHUB_TOKEN` is available via `os.environ`.
 
-cd patria-site && git pull origin main
+```python
+import os
+import shutil
+import subprocess
+from pathlib import Path
+from datetime import datetime
 
-# Articles go into _posts/ — Jekyll naming: YYYY-MM-DD-slug.md
-cp memory/drafts/YYYY-MM-DD-slug.md docs/_posts/YYYY-MM-DD-slug.md
+def publish_website(slug: str) -> str:
+    token = os.environ.get("GITHUB_TOKEN", "")
+    if not token:
+        return "SKIP: GITHUB_TOKEN not set"
 
-# Images go into docs/assets/img/articles/
-mkdir -p docs/assets/img/articles/
-cp memory/media/YYYY-MM/YYYY-MM-DD-slug-header.png docs/assets/img/articles/
-cp memory/media/YYYY-MM/YYYY-MM-DD-slug-social.png docs/assets/img/articles/
+    repo_url = f"https://{token}@github.com/Nostra-patria/patria.git"
+    repo_dir = Path("/workspace/patria-site")
 
-git add .
-git commit -m "article: YYYY-MM-DD-slug"
-git push origin main
+    # Clone or pull
+    if not repo_dir.exists():
+        subprocess.run(["git", "clone", repo_url, str(repo_dir)], check=True)
+    else:
+        subprocess.run(["git", "-C", str(repo_dir), "pull", "origin", "main"], check=True)
+
+    # Copy article
+    src = Path(f"/workspace/memory/drafts/{slug}.md")
+    dst = repo_dir / "docs" / "_posts" / f"{slug}.md"
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dst)
+
+    # Copy images if they exist
+    media_dir = Path("/workspace/memory/media")
+    img_dst = repo_dir / "docs" / "assets" / "img" / "articles"
+    img_dst.mkdir(parents=True, exist_ok=True)
+    for ext in ("header.png", "social.png"):
+        img_src = next(media_dir.rglob(f"{slug}-{ext}"), None)
+        if img_src:
+            shutil.copy2(img_src, img_dst / img_src.name)
+
+    # Git commit + push
+    env = {**os.environ, "GIT_AUTHOR_NAME": "Patria", "GIT_AUTHOR_EMAIL": "agent@patria"}
+    subprocess.run(["git", "-C", str(repo_dir), "add", "-A"], check=True, env=env)
+    subprocess.run(["git", "-C", str(repo_dir), "commit", "-m", f"article: {slug}"], check=True, env=env)
+    subprocess.run(["git", "-C", str(repo_dir), "push", "origin", "main"], check=True, env=env)
+
+    year, month = slug[:4], slug[5:7]
+    url_slug = slug[11:]  # strip YYYY-MM-DD-
+    return f"https://nostra-patria.github.io/patria/articles/{year}/{month}/{url_slug}/"
 ```
 
 Article URL after push (Jekyll builds automatically on GitHub Pages):
