@@ -7,3 +7,5 @@ docs/_site/
 docs/.jekyll-cache/
 docs/Gemfile.lock
 .env
+# Publisher working clone — never commit
+patria-site/
