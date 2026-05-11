@@ -6,7 +6,7 @@ star: 2
 star_label: "Defence & Foreign Policy"
 slug: security-sovereignty-gap-defence-readiness
 summary: "EU defence ministers are meeting to discuss 'readiness,' but without a federal defence union, Europe is merely managing its vulnerability."
-image: /patria/assets/img/articles/2026-05-12-security-sovereignty-gap-header.png
+image: /patria/assets/img/articles/2026-05-12-security-sovereignty-gap-defence-readiness-header.png
 ---
 
 # The Security-Sovereignty Gap: Why 'Defence Readiness' is a Dangerous Illusion
