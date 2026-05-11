@@ -21,58 +21,36 @@ If a credential is missing: log to memory, publish to available platforms only, 
 
 ## 1. Website (GitHub Pages)
 
-Use Python + subprocess — do NOT use shell scripts. The `GITHUB_TOKEN` is available via `os.environ`.
+**CRITICAL PATH RULE**: Articles must go into `docs/_posts/` — NOT `_posts/`. GitHub Pages serves from the `docs/` folder. Files in root `_posts/` are ignored.
 
-```python
-import os
-import shutil
-import subprocess
-from pathlib import Path
-from datetime import datetime
+Run these exact `exec` steps. Replace `SLUG` with the full filename slug (e.g. `2026-05-11-my-article`).
 
-def publish_website(slug: str) -> str:
-    token = os.environ.get("GITHUB_TOKEN", "")
-    if not token:
-        return "SKIP: GITHUB_TOKEN not set"
-
-    repo_url = f"https://{token}@github.com/Nostra-patria/patria.git"
-    repo_dir = Path("/workspace/patria-site")
-
-    # Clone or pull — always set remote URL with token to ensure auth
-    if not repo_dir.exists():
-        subprocess.run(["git", "clone", repo_url, str(repo_dir)], check=True)
-    else:
-        # Overwrite remote URL in case token was not embedded previously
-        subprocess.run(["git", "-C", str(repo_dir), "remote", "set-url", "origin", repo_url], check=True)
-        subprocess.run(["git", "-C", str(repo_dir), "pull", "origin", "main"], check=True)
-
-    # Copy article
-    src = Path(f"/workspace/memory/drafts/{slug}.md")
-    dst = repo_dir / "docs" / "_posts" / f"{slug}.md"
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(src, dst)
-
-    # Copy images if they exist
-    media_dir = Path("/workspace/memory/media")
-    img_dst = repo_dir / "docs" / "assets" / "img" / "articles"
-    img_dst.mkdir(parents=True, exist_ok=True)
-    for ext in ("header.png", "social.png"):
-        img_src = next(media_dir.rglob(f"{slug}-{ext}"), None)
-        if img_src:
-            shutil.copy2(img_src, img_dst / img_src.name)
-
-    # Git commit + push
-    env = {**os.environ, "GIT_AUTHOR_NAME": "Patria", "GIT_AUTHOR_EMAIL": "agent@patria"}
-    subprocess.run(["git", "-C", str(repo_dir), "add", "-A"], check=True, env=env)
-    subprocess.run(["git", "-C", str(repo_dir), "commit", "-m", f"article: {slug}"], check=True, env=env)
-    subprocess.run(["git", "-C", str(repo_dir), "push", "origin", "main"], check=True, env=env)
-
-    year, month = slug[:4], slug[5:7]
-    url_slug = slug[11:]  # strip YYYY-MM-DD-
-    return f"https://nostra-patria.github.io/patria/articles/{year}/{month}/{url_slug}/"
+**Step 1 — Set up local clone:**
+```bash
+TOKEN=$(printenv GITHUB_TOKEN)
+if [ ! -d /workspace/patria-site ]; then
+  git clone https://$TOKEN@github.com/Nostra-patria/patria.git /workspace/patria-site
+else
+  git -C /workspace/patria-site remote set-url origin https://$TOKEN@github.com/Nostra-patria/patria.git
+  git -C /workspace/patria-site pull origin main
+fi
 ```
 
-Article URL after push (Jekyll builds automatically on GitHub Pages):
+**Step 2 — Copy article into `docs/_posts/` (NOT `_posts/`):**
+```bash
+SLUG=YYYY-MM-DD-your-slug-here
+mkdir -p /workspace/patria-site/docs/_posts/
+cp /workspace/memory/drafts/$SLUG.md /workspace/patria-site/docs/_posts/$SLUG.md
+```
+
+**Step 3 — Commit and push:**
+```bash
+git -C /workspace/patria-site add docs/_posts/$SLUG.md
+git -C /workspace/patria-site -c user.name="Patria" -c user.email="agent@patria" commit -m "article: $SLUG"
+git -C /workspace/patria-site push origin main
+```
+
+After push, the article will be live at:
 ```
 https://nostra-patria.github.io/patria/articles/YYYY/MM/slug/
 ```
