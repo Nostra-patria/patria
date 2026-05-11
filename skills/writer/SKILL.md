@@ -8,7 +8,7 @@ Write a long-form Patria article from a research object.
 ---
 layout: article
 title: "Factual, opinionated headline (max 90 chars)"
-date: YYYY-MM-DD
+date: YYYY-MM-DD  # ALWAYS use today's date — never a future date (Jekyll won't publish future posts)
 star: 5
 star_label: "Energy Sovereignty"
 slug: europe-lng-dependency-new-trap
