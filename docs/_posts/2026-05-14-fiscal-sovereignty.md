@@ -5,6 +5,7 @@ date: 2026-05-14
 star: 7
 star_label: "Fiscal Sovereignty"
 slug: 2026-05-14-fiscal-sovereignty
+image: /patria/assets/img/articles/2026-05-14-fiscal-sovereignty-header.png
 summary: "The EU's shift toward a federal fiscal capacity is becoming a structural necessity driven by the failure of intergovernmental budgeting and the rise of systemic obstruction."
 ---
 
