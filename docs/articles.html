@@ -8,22 +8,60 @@ permalink: /articles/
   <h1 class="articles-list-title">Articles</h1>
   <p class="articles-list-sub">All published analysis, tagged by theme.</p>
 
-  <div class="star-filter" id="star-filter">
-    <a href="{{ '/articles' | relative_url }}" class="star-badge" style="--star-color: #d4a853">All</a>
-    {% for star in site.stars %}
-    <a href="#star-{{ star.id }}" class="star-badge" style="--star-color: {{ star.color }}">★{{ star.id }} {{ star.label }}</a>
-    {% endfor %}
+  <div class="view-toggle" id="view-toggle">
+    <button class="view-btn active" id="btn-date" onclick="setView('date')">By Date</button>
+    <button class="view-btn" id="btn-theme" onclick="setView('theme')">By Theme</button>
   </div>
 </div>
 
-<div class="section">
+<div id="view-date" class="section">
   <div class="articles-grid">
     {% for post in site.posts %}
       {% include article-card.html %}
     {% endfor %}
   </div>
-
   {% if site.posts.size == 0 %}
   <p style="color: var(--text-muted); text-align: center; padding: 4rem 0;">No articles published yet.</p>
   {% endif %}
 </div>
+
+<div id="view-theme" class="section" style="display: none;">
+  {% for star in site.stars %}
+  {% assign star_articles = site.posts | where: "star", star.id %}
+  {% if star_articles.size > 0 %}
+  <div class="theme-section">
+    <div class="section-header">
+      <h2 class="section-title" style="color: {{ star.color }}">
+        <a href="{{ '/stars/#star-' | append: star.id | relative_url }}" class="star-section-link" style="color: {{ star.color }}">★{{ star.id }} {{ star.label }}</a>
+      </h2>
+      <span class="section-link">{{ star_articles.size }} article{% if star_articles.size != 1 %}s{% endif %}</span>
+    </div>
+    <div class="articles-grid">
+      {% for post in star_articles %}
+        {% include article-card.html %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+  {% assign covered = site.posts | map: "star" | uniq | size %}
+  {% if covered == 0 %}
+  <p style="color: var(--text-muted); text-align: center; padding: 4rem 0;">No articles published yet.</p>
+  {% endif %}
+</div>
+
+<script>
+function setView(v) {
+  document.getElementById('view-date').style.display  = v === 'date'  ? '' : 'none';
+  document.getElementById('view-theme').style.display = v === 'theme' ? '' : 'none';
+  document.getElementById('btn-date').classList.toggle('active', v === 'date');
+  document.getElementById('btn-theme').classList.toggle('active', v === 'theme');
+  try { localStorage.setItem('patria-articles-view', v); } catch(e) {}
+}
+(function() {
+  try {
+    var saved = localStorage.getItem('patria-articles-view');
+    if (saved === 'theme') setView('theme');
+  } catch(e) {}
+})();
+</script>

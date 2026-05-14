@@ -6,16 +6,25 @@ permalink: /stars/
 
 <div class="articles-list-header">
   <h1 class="articles-list-title">12 Stars</h1>
-  <p class="articles-list-sub">The analytical framework Patria uses to organise its coverage of European politics. Every article is tagged to one or more of these themes — derived from the core challenges facing European sovereignty and federation.</p>
+  <p class="articles-list-sub">Twelve imperatives for European sovereignty, federation, and democratic ambition. Every article published by Patria is grounded in one of these themes — the analytical framework Patria shares with <strong>Astra Europa</strong>.</p>
 </div>
 
 <div class="section">
-  <div class="stars-grid">
+  <div class="stars-grid stars-grid--full">
     {% for star in site.stars %}
     {% assign star_articles = site.posts | where: "star", star.id %}
-    <div class="star-card" id="star-{{ star.id }}" style="--star-color: {{ star.color }}">
+    {% assign astra_data = site.data.astra | where: "id", star.id | first %}
+    <div class="star-card star-card--rich" id="star-{{ star.id }}" style="--star-color: {{ star.color }}">
       <div class="star-card-number">★ {{ star.id }}</div>
       <div class="star-card-title">{{ star.label }}</div>
+      {% if astra_data %}
+      <p class="star-card-angle">{{ astra_data.angle }}</p>
+      <div class="star-themes">
+        {% for theme in astra_data.themes %}
+        <span class="theme-tag">{{ theme }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
       <div class="star-card-count">{{ star_articles.size }} article{% if star_articles.size != 1 %}s{% endif %}</div>
     </div>
     {% endfor %}

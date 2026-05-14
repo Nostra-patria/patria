@@ -638,6 +638,83 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer-links a:hover { color: var(--gold); }
 
+/* --- View toggle (articles page) -------------------------- */
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.view-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.view-btn:hover {
+  border-color: var(--gold-dim);
+  color: var(--gold);
+}
+
+.view-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg);
+}
+
+.theme-section { margin-bottom: 3rem; }
+
+.star-section-link { text-decoration: none; }
+.star-section-link:hover { opacity: 0.8; }
+
+/* --- Stars page — rich cards ------------------------------ */
+.stars-grid--full {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.star-card--rich {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.star-card-angle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0.25rem 0 0.5rem;
+  flex: 1;
+}
+
+.star-themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.theme-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--star-color) 10%, transparent);
+  color: color-mix(in srgb, var(--star-color) 70%, var(--text-muted));
+  border: 1px solid color-mix(in srgb, var(--star-color) 20%, transparent);
+}
+
 .footer-copy {
   font-size: 0.75rem;
   color: var(--text-dim);
