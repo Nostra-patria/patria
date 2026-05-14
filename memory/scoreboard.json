@@ -1,0 +1,17 @@
+{
+  "stars": {
+    "1":  { "name": "A European Federation",             "count": 1 },
+    "2":  { "name": "United Defence and Foreign Policy", "count": 3 },
+    "3":  { "name": "Europe in the World",               "count": 1 },
+    "4":  { "name": "Borders, Migration, and Justice",   "count": 1 },
+    "5":  { "name": "Energy Sovereignty",                "count": 0 },
+    "6":  { "name": "The Digital Age",                   "count": 2 },
+    "7":  { "name": "Fiscal Sovereignty",                "count": 0 },
+    "8":  { "name": "Prosperity Through Scale",          "count": 1 },
+    "9":  { "name": "A Human-Centered Economy",          "count": 0 },
+    "10": { "name": "Climate and Sustainability",         "count": 0 },
+    "11": { "name": "Ambition and Discovery",             "count": 0 },
+    "12": { "name": "European Identity",                  "count": 0 }
+  },
+  "note": "Updated by librarian after each successful publish. Counts reflect published articles per Astra Europa Guiding Star."
+}
