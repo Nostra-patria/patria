@@ -1,6 +1,6 @@
 ---
 layout: article
-title: "The Infrastructure Gap: Why EU Energy Law Is Outpacing Political Integration"
+title: "The Dual Chokepoint: How Europe Is Trading Fossil Fuel Dependency for Hardware Dependency"
 date: 2026-05-14
 star: 5
 star_label: "Energy Sovereignty"

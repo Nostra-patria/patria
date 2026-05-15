@@ -3,7 +3,7 @@
 | 2026-05-14 | [The Carbon Border: Regulatory Sovereignty vs. Industrial Protectionism](/patria/articles/2026-05-14-climate-sovereignty/) | Star 10 — Climate & Sustainability | 100/100 |
 | 2026-05-14 | [The Social Sovereignty Gap](/patria/articles/2026/05/2026-05-14-defence-sovereignty/) | Star 9 - A Human-Centred Economy | 72/100 |
 | 2026-05-14 | [The Fiscal Capacity Gap: From National Contributions to Federal Autonomy](/patria/articles/2026-05-14-fiscal-sovereignty/) | Star 7 — Fiscal Sovereignty | 95/100 |
-| 2026-05-14 | [The Infrastructure Gap: Why EU Energy Law Is Outpacing Political Integration](/patria/articles/2026-05-14-energy-sovereignty/) | Star 5 — Energy Sovereignty | 95/100 |
+| 2026-05-14 | [The Dual Chokepoint: How Europe Is Trading Fossil Fuel Dependency for Hardware Dependency](/patria/articles/2026-05-14-energy-sovereignty/) | Star 5 — Energy Sovereignty | 95/100 |
 | | | - 2026-05-13 | [Beyond Externalisation: The Federal Imperative for Europe's 2026 Migration Pivot](/patria/articles/2026-05-13-borders-migration-justice/) | Star 4 — Borders, Migration & Justice | 85/100
 | | | - 2026-05-11 | The End of the American Umbrella: Why Europe Needs a Security Council Now | 2026-05-11 | Star #2 | /end-of-american-umbrella-security-council
 | | | - 2026-05-12 | The AI Act Paradox: When Ambition Outpaces Enforcement | 2026-05-12 | Star #6 | /ai-act-paradox-ambition-enforcement
