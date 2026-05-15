@@ -31,27 +31,33 @@ If complete prints "COMPLETE RETRY" or "COMPLETE FAIL" → stop, report, do noth
 
 ## Skills
 
-| Skill | Folder | Step |
+| Skill | Folder | Steps |
 |---|---|---|
-| **Pipeline** | `skills/pipeline/` | **Orchestrator — always load first** |
-| Scout I | `skills/scout/` | scout |
-| Scout II — Deepen | `skills/scout-deepen/` | scout-deepen |
-| Curator | `skills/curator/` | curator |
-| Researcher I | `skills/researcher/` | researcher-1 |
-| Researcher II | `skills/researcher-2/` | researcher-2 |
-| Writer — Lead | `skills/writer/` | writer-lead |
-| Writer — Body | `skills/writer-body/` | writer-body |
-| Writer — Close | `skills/writer-close/` | writer-close |
-| Verifier | `skills/verifier/` | verifier |
-| Editor — Structure | `skills/editor-structure/` | editor-structure |
-| Editor — Voice | `skills/editor-voice/` | editor-voice |
-| Grounder | `skills/grounder/` | grounder |
-| Referee | `skills/referee/` | referee |
-| Librarian | `skills/librarian/` | librarian |
-| Illustrator | `skills/illustrator/` | illustrator |
-| Publisher | `skills/publisher/` | publisher |
+| Scout | `skills/scout/` | `scout` |
+| Scout Deepen | `skills/scout-deepen/` | `scout-deepen` |
+| Curator Rank | `skills/curator-rank/` | `curator:rank` |
+| Curator Angle | `skills/curator-angle/` | `curator:angle` |
+| Researcher Plan | `skills/researcher-plan/` | `researcher:plan` |
+| Researcher Q | `skills/researcher-q/` | `researcher:q1` `researcher:q2` `researcher:q3` `researcher:q4` |
+| Researcher Compile | `skills/researcher-compile/` | `researcher:compile` |
+| Writer Lead | `skills/writer/` | `writer:lead` |
+| Writer Body | `skills/writer-body/` | `writer:body` |
+| Writer Close | `skills/writer-close/` | `writer:close` |
+| Writer Merge | `skills/writer-merge/` | `writer:merge` |
+| Verifier Run 1 | `skills/verifier-run1/` | `verifier:run1` |
+| Verifier Check | `skills/verifier-check/` | `verifier:check1` `verifier:check2` `verifier:check3` |
+| Verifier Compile | `skills/verifier-compile/` | `verifier:compile` |
+| Editor Structure | `skills/editor-structure/` | `editor:structure` |
+| Editor Voice | `skills/editor-voice/` | `editor:voice` |
+| Grounder | `skills/grounder/` | `grounder` |
+| Referee | `skills/referee/` | `referee` |
+| Librarian | `skills/librarian/` | `librarian` |
+| Illustrator | `skills/illustrator/` | `illustrator` |
+| Publisher Stage | `skills/publisher-stage/` | `publisher:stage` |
+| Publisher Post | `skills/publisher-post/` | `publisher:post` |
+| Publisher Bluesky | `skills/publisher-bluesky/` | `publisher:bluesky` |
 
-Load `skills/pipeline/SKILL.md` for pipeline reference. For cron dispatch, use the step-specific skill file specified by `pipeline_dispatch.py` output.
+Pipeline is managed by the `pipeline.py` service (baked into the Docker image). Skills are workspace-mounted — edits take effect immediately without rebuild.
 
 ## Communication
 
@@ -71,42 +77,8 @@ Load `skills/pipeline/SKILL.md` for pipeline reference. For cron dispatch, use t
 Heartbeat is **enabled** (every 60 minutes). Role: **start new runs only**.
 
 Check `HEARTBEAT.md`. Then read `memory/pipeline/active.json`:
-- **If a run is active** → return `skip`. The cron dispatcher handles pending steps.
-- **If no active run** → start a new run: scout step only, set `active.json`, stop.
-
-## Cron dispatcher
-
-A cron job fires every **3 minutes**. Role: **execute the next pending pipeline step**.
-
-When triggered by the cron message, follow these steps IN ORDER — do not deviate:
-
-**Step 1 — Run the dispatch script:**
-```
-exec: python3 /workspace/tools/pipeline_dispatch.py
-```
-
-**Step 2 — Read the output and decide:**
-- Output starts with `NO WORK` → stop immediately, do nothing else
-- Output starts with `RUN COMPLETE` → stop immediately, do nothing else
-- Output starts with `DISPATCH READY` → continue to Step 3
-
-**Step 3 — From the `DISPATCH READY` output, note:**
-- `Run:` — the run ID
-- `Step:` — the pipeline step name to execute
-- `Skill:` — the skill file to read (exact path)
-- `RunDir:` — base directory for all input/output files
-- `Complete:` — the exact command to run when the step finishes
-
-**Step 4 — Read the skill file:**
-```
-read_file: {Skill path from Step 3}
-```
-
-**Step 5 — Execute the step** following the skill's instructions exactly. Use `RunDir` as the base path for all files the skill mentions.
-
-**Step 6 — Run the Complete command** (from Step 3) after writing the output file.
-
-**Step 7 — STOP.** Do not start another step. The next cron tick handles the next step.
+- **If a run is active** → return `skip`. The pipeline service handles pending steps automatically.
+- **If no active run** → start a new run via the internal API (see below), scout step only, stop.
 
 ## Chat operations
 
