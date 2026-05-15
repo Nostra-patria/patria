@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <!-- Social preview: explicit og:image before {% seo %} for correct priority -->
   {% assign _og_image = page.image | default: '/patria/assets/img/bluesky-card.png' %}
   <meta property="og:image" content="{{ site.url }}{{ _og_image }}">
   <meta property="og:image:width" content="1299">
