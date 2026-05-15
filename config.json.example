@@ -1,0 +1,52 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "/workspace",
+      "model": "gemma4:31b-cloud",
+      "provider": "ollamaCloud",
+      "maxTokens": 8192,
+      "contextWindowTokens": 32768,
+      "temperature": 0.7,
+      "maxToolIterations": 60,
+      "timezone": "Europe/Brussels"
+    }
+  },
+  "channels": {
+    "sendProgress": false,
+    "sendToolHints": false,
+    "sendMaxRetries": 3,
+    "discord": {
+      "enabled": true,
+      "token": "YOUR_DISCORD_BOT_TOKEN_HERE",
+      "allowFrom": ["*"],
+      "groupPolicy": "mention",
+      "streaming": true
+    }
+  },
+  "providers": {
+    "local": {
+      "label": "Ollama (local/cloud)",
+      "apiKey": "",
+      "apiBase": "http://host.docker.internal:11434/v1"
+    },
+    "xai": {
+      "label": "xAI",
+      "apiKey": "",
+      "apiKeyEnv": "GROK_API_KEY",
+      "apiBase": "https://api.x.ai/v1",
+      "models": [
+        "grok-3-mini",
+        "grok-3"
+      ]
+    }
+  },
+  "gateway": {
+    "host": "0.0.0.0",
+    "port": 6161
+  },
+  "tools": {
+    "exec": {
+      "allowed_env_keys": ["GROK_API_KEY", "GITHUB_TOKEN", "BSKY_HANDLE", "BSKY_APP_PASSWORD", "DISCORD_TOKEN", "DISCORD_PIPELINE_CHANNEL"]
+    }
+  }
+}

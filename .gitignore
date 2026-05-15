@@ -17,6 +17,9 @@ cron/jobs.json
 
 # Temp files
 temp_*.py
+
+# Contains secrets (Discord token) — see config.json.example
+config.json
 docs/_site/
 docs/.jekyll-cache/
 docs/Gemfile.lock
