@@ -1,88 +1,99 @@
-# Skill: Writer
+# Skill: Writer — Lead
 
-Write a long-form Patria article from a research object.
+Write the opening of the article only: frontmatter + hook + lead section. Do not write body sections or the close.
 
-## Format
+## Pipeline I/O
+
+- **Called by**: pipeline skill (step: writer-lead)
+- **Input**: `{run_dir}/research-report.md` + `{run_dir}/curated-sources.md`
+- **Output**: `{run_dir}/draft-v1-lead.md`
+- **Pass score**: ≥ 0.6 (frontmatter complete + hook present + lead section ≥ 100 words)
+- **Trigger**: `research-report.md` contains `## RUN-2-COMPLETE`
+
+## Goal
+
+Write the opening of the article — frontmatter, hook, and lead section. Get the argument and register right from the first sentence. The body writer builds on this foundation.
+
+## Tools
+
+- `read_file` — read research-report.md and curated-sources.md
+- `write_file` — write draft-v1-lead.md
+
+## Patria voice
+
+- English — always
+- Specific over general. Name the commissioner, the treaty article, the vote count, the summit date.
+- Active sentences. "The Council approved" not "approval was granted."
+- No marketing language: not "landmark", "game-changer", "unprecedented", "historic".
+- No padding: not "it is important to note", "needless to say", "at the end of the day".
+- Label opinions explicitly: "Patria's view:" or "The data suggests..." — never present analysis as fact.
+- Short sentence after complexity. Rhythm matters.
+- European integration as the frame: challenges are integration problems to solve within the EU, never evidence the project has failed.
+
+**Register: Astra Europa manifesto tone — calm, diagnostic, structurally rigorous.**
+
+The article must read like the Astra Europa manifesto, not like a newspaper headline. Study these contrasts:
+
+| ❌ Sensational (avoid) | ✅ Astra Europa register (use) |
+|---|---|
+| "signals the end of the intergovernmental era" | "challenges the structural logic of intergovernmental decision-making" |
+| "The Federal Imperative" | "The Case for a Federal Approach" |
+| "survival in a multipolar world" | "competitiveness in a multipolar world" |
+| "A seismic shift in European policy" | "A structural change in how [institution] handles [X]" |
+| "Europe stands at a crossroads" | Name the specific decision point instead |
+
+**Titles**: State the argument, not a verdict. "Beyond Externalisation" is good. "The End of the Intergovernmental Era" is not — it makes a historical claim the article cannot prove.
+
+**Hook**: Lead with the most specific named fact — a date, a vote, an institution, a named official. Not a sweeping statement about Europe's future. Not a rhetorical question.
+
+## Process
+
+### Step 1 — Read the research
+
+Read `{run_dir}/research-report.md` in full. Identify:
+- The single strongest angle (most institutional specificity + historical depth)
+- The most striking fact, quote, or statistic — this will anchor the hook
+- The Astra Europa Guiding Star and its frame
+
+### Step 2 — Write the frontmatter
 
 ```markdown
 ---
 layout: article
-title: "Factual, opinionated headline (max 90 chars)"
-date: YYYY-MM-DD  # ALWAYS use today's date — never a future date (Jekyll won't publish future posts)
-star: 5
-star_label: "Energy Sovereignty"
-slug: europe-lng-dependency-new-trap
-summary: "One sentence. The argument in plain language."
-image: /patria/assets/img/articles/YYYY-MM-DD-slug-header.png
+title: "{Specific, opinionated headline — max 90 chars. States the argument, not the topic.}"
+date: {today YYYY-MM-DD}
+star: {n}
+star_label: "{Star name}"
+slug: {run_id}
+summary: "{One sentence. The argument in plain language.}"
+image: /patria/assets/img/articles/{run_id}-header.png
 ---
-
-# [Title]
-
-**[Hook — one or two sentences. The argument stated boldly. No hedging.]**
-
-## [Section 1 — The situation]
-
-[2–3 paragraphs: what is happening. Concrete, sourced. Cite inline with markdown links.]
-
-## [Section 2 — Why it matters for Europe]
-
-[2–3 paragraphs: the European angle. Connect to sovereignty, institutions, strategic interests.
-This is where the Patria voice is strongest.]
-
-## [Section 3 — The argument / analysis]
-
-[2–3 paragraphs: what Patria thinks. Clearly labelled as analysis.
-Use "The data suggests..." not "Everyone knows..."]
-
-## [Section 4 — What should happen (optional)]
-
-[1–2 paragraphs: what a federal, sovereign Europe would do differently.
-Forward-looking. Grounded in the research.]
-
-## Sources
-
-- [Source Title](URL) — Tier 1/2/3
-- [Source Title](URL) — Tier 1/2/3
 ```
 
-## Length
+Slug must equal the `{run_id}` exactly. Image path must follow the pattern above exactly.
 
-600–1200 words. No padding. Every sentence earns its place.
+### Step 3 — Write the hook
 
-## Voice rules
-
-- English — always
-- Short sentences. Active voice.
-- "The Commission's data shows..." not "It is widely believed..."
-- Label opinions: "Patria's view:" or "This is, at minimum, worth debating."
-- Never condescending. Never sloganeering.
-- The hook must earn the reader's attention in two sentences.
-
-## File naming
-
-Jekyll requires this exact format for `_posts/`:
-```
-YYYY-MM-DD-slug.md
+```markdown
+**{1-2 sentences. The argument stated boldly. Lead with a named fact, date, or official — not a question, not a generalisation. No hedging.}**
 ```
 
-## Storage
+Check: does the first sentence name something specific? If it starts with "Europe" followed by a general observation — rewrite it.
 
-Write to `memory/drafts/YYYY-MM-DD-slug.md` first.
-After publish, the publisher copies it to `patria-site/_posts/`.
+### Step 4 — Write the lead section
 
-## Library update
+```markdown
+## {Section 1 title — describe the immediate development}
 
-After the article is finalised, add an entry to `memory/LIBRARY.md`:
-
-```
-| YYYY-MM-DD | [Title](URL) | Star N — Label | slug |
+{2–3 paragraphs. What happened. Who decided what. Named people, named dates, named institutions. Inline source links for every factual claim: [Source Name](URL).}
 ```
 
-## Quality check
+This section is ~200 words. It sets the scene for the body writer.
 
-- [ ] Hook states the argument, not the topic
-- [ ] All factual claims have inline source links
-- [ ] European angle section is present
-- [ ] No fabricated quotes or statistics
-- [ ] Star tag matches content
-- [ ] Slug is URL-safe (lowercase, hyphens only)
+### Step 5 — Write draft-v1-lead.md
+
+Write the complete output: frontmatter + hook + lead section. Stop there.
+
+Report: `Writer Lead done — {word count} words, hook and lead section written.`
+
+Do not write body sections. Do not write the close.

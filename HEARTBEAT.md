@@ -1,27 +1,21 @@
 # Heartbeat Tasks
 
 This file is checked every 60 minutes by the Patria agent.
-If no explicit tasks are listed, run the default editorial pipeline.
 
-## Default (always runs when no active tasks)
+## Role: start new runs only
 
-- Run scout: monitor EU news, geopolitics, Astra Europa, Volt, Ave Europa
-- Identify 1–3 topics worth writing about
-- Research the strongest topic (minimum 2 Tier-1/2 sources)
-- Draft article (600–1200w), tagged to a Star
-- Derive 3–5 social posts
-- Generate header image + social card
-- Publish: website, Bluesky, LinkedIn
-- Update memory/LIBRARY.md
+**Heartbeat does NOT execute pipeline steps.** Steps are dispatched by the cron job (every 3 minutes).
+
+Read `memory/pipeline/active.json`:
+
+- **If a run is active** (run_id is set): do nothing. The cron dispatcher handles it. Return `skip`.
+- **If no active run**: start a new run. Use skill: pipeline to pick a topic (scout step only), create `memory/pipeline/runs/{run-id}/state.json`, set `active.json`, then stop. ONE step only.
+
+Do not continue past scout. Do not run researcher, writer, or any later step. The cron dispatcher takes over after scout.
 
 ## Active Tasks
 
-<!-- Add priority tasks or manual triggers below this line -->
-**FULL RUN — website + images**
-Run the full pipeline: scout → research → write → illustrate → publish.
-Generate 1 header image per article using the Grok Imagine API (skill: illustrator).
-Publish article + image to GitHub Pages (docs/_posts/ and docs/assets/img/articles/).
-Skip Bluesky and LinkedIn for now.
+<!-- Add manual overrides below this line. Remove when done. -->
 
 ## Completed
 

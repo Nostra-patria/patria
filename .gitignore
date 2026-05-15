@@ -2,7 +2,21 @@
 sessions/
 memory/history.jsonl
 memory/vectors.db
+memory/pipeline/
+memory/media/
+memory/research/
+memory/drafts/
 cron/jobs.json
+
+# Nanobot internal cache — never commit
+.nanobot/
+
+# Python cache
+**/__pycache__/
+*.pyc
+
+# Temp files
+temp_*.py
 docs/_site/
 docs/.jekyll-cache/
 docs/Gemfile.lock

@@ -1,0 +1,62 @@
+{
+  "1":  {
+    "name":   "A European Federation",
+    "angle":  "Europe must become a sovereign democratic federation with a federal constitution, elected government, and clear division of powers replacing today's fragmented 27-nation governance.",
+    "themes": ["European federation", "federal constitution", "EU reform", "democratic legitimacy", "subsidiarity"]
+  },
+  "2":  {
+    "name":   "United Defence and Foreign Policy",
+    "angle":  "Europe needs a single foreign policy and integrated defence capability — common procurement, federal command, and an independent nuclear deterrent under democratic control.",
+    "themes": ["EU defence", "European army", "NATO autonomy", "defence procurement", "strategic autonomy"]
+  },
+  "3":  {
+    "name":   "Europe in the World",
+    "angle":  "A united Europe engages the world from strength — backing Ukraine, reforming the UN Security Council, and projecting European values without imposing them.",
+    "themes": ["EU foreign policy", "Ukraine", "multilateralism", "UN reform", "geopolitics"]
+  },
+  "4":  {
+    "name":   "Borders, Migration, and Justice",
+    "angle":  "Europe needs a federal border and migration system: secure external borders, firm returns, and a legal migration framework calibrated to integration capacity.",
+    "themes": ["EU migration policy", "Schengen", "asylum reform", "border control", "cross-border crime"]
+  },
+  "5":  {
+    "name":   "Energy Sovereignty",
+    "angle":  "Europe must end energy dependency through a rapid transition to domestic clean energy, a single energy market, and connected grids — fossil fuels from within, not from hostile regimes.",
+    "themes": ["EU energy policy", "energy sovereignty", "renewables", "energy market", "energy security"]
+  },
+  "6":  {
+    "name":   "The Digital Age",
+    "angle":  "Europe must develop its own frontier AI, enforce digital sovereignty, and govern information platforms — privacy is a right, mass surveillance is not a democratic option.",
+    "themes": ["EU AI policy", "digital sovereignty", "AI Act", "platform regulation", "data privacy"]
+  },
+  "7":  {
+    "name":   "Fiscal Sovereignty",
+    "angle":  "A European federation needs its own fiscal capacity — direct taxation, a federal corporate tax floor, and a budget that matches its responsibilities instead of 1% of GDP.",
+    "themes": ["EU fiscal policy", "EU budget", "corporate tax", "Eurozone reform", "fiscal union"]
+  },
+  "8":  {
+    "name":   "Prosperity Through Scale",
+    "angle":  "Europe must complete the single market — capital union, uniform company law, and Buy European rules in strategic sectors — so European firms can compete at continental scale.",
+    "themes": ["EU single market", "capital markets union", "EU competitiveness", "industrial policy", "scale-up"]
+  },
+  "9":  {
+    "name":   "A Human-Centered Economy",
+    "angle":  "GDP is not enough — Europe should govern by the OECD Better Life Index, fix the housing crisis, simplify welfare, and invest in families and the demographic transition.",
+    "themes": ["EU social policy", "housing crisis", "welfare reform", "demographics", "wellbeing economy"]
+  },
+  "10": {
+    "name":   "Climate and Sustainability",
+    "angle":  "Europe is the fastest-warming continent — it must lead the clean economy transition with a carbon border mechanism, ecosystem restoration, and policy that cuts emissions not industries.",
+    "themes": ["EU climate policy", "carbon border mechanism", "Green Deal", "clean energy transition", "sustainability"]
+  },
+  "11": {
+    "name":   "Ambition and Discovery",
+    "angle":  "Europe must invest heavily in fundamental research, close the gap between science and industry, and pursue space as a strategic frontier — ambition over managed decline.",
+    "themes": ["EU research policy", "Horizon Europe", "space policy", "innovation", "science funding"]
+  },
+  "12": {
+    "name":   "European Identity",
+    "angle":  "A European identity layers over national identities — built through shared education, Erasmus, pan-European media, and a constitutional moment that makes being European feel real.",
+    "themes": ["European identity", "Erasmus", "EU citizenship", "cultural policy", "federalism"]
+  }
+}
