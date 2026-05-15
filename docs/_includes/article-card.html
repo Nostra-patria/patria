@@ -1,5 +1,7 @@
 {% assign star_id = post.star | default: 0 %}
 {% assign star_info = site.stars | where: "id", star_id | first %}
+{% assign card_words = post.content | number_of_words %}
+{% assign card_read_time = card_words | divided_by: 230 | plus: 1 %}
 
 <article class="article-card">
   {% if post.image %}
@@ -19,6 +21,10 @@
     {% if post.summary %}
     <p class="card-summary">{{ post.summary }}</p>
     {% endif %}
-    <time class="card-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+    <div class="card-meta">
+      <time class="card-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+      <span class="card-meta-sep">·</span>
+      <span class="reading-time">{{ card_read_time }} min</span>
+    </div>
   </div>
 </article>

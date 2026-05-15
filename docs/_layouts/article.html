@@ -4,6 +4,10 @@ layout: default
 
 {% assign star_id = page.star | default: 0 %}
 {% assign star_info = site.stars | where: "id", star_id | first %}
+{% assign words = content | number_of_words %}
+{% assign read_time = words | divided_by: 230 | plus: 1 %}
+
+<div class="reading-progress" id="reading-progress"></div>
 
 <article class="article-page">
 
@@ -21,6 +25,7 @@ layout: default
       </a>
       {% endif %}
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span class="reading-time">{{ read_time }} min read</span>
     </div>
 
     <h1 class="article-title">{{ page.title }}</h1>
@@ -45,4 +50,35 @@ layout: default
     <a href="{{ '/articles' | relative_url }}" class="back-link">← All articles</a>
   </footer>
 
+  {% assign other_posts = site.posts | where_exp: "p", "p.url != page.url" %}
+  {% if other_posts.size > 0 %}
+  <section class="continue-reading">
+    <p class="continue-reading-title">Continue reading</p>
+    <ul class="continue-reading-list">
+      {% for p in other_posts limit: 4 %}
+      <li>
+        <a href="{{ p.url | relative_url }}">
+          <span class="cr-title">{{ p.title }}</span>
+          <span class="cr-date">{{ p.date | date: "%b %-d, %Y" }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
 </article>
+
+<script>
+  (function () {
+    var bar = document.getElementById('reading-progress');
+    if (!bar) return;
+    function update() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docH = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (docH > 0 ? Math.min(100, (scrollTop / docH) * 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>

@@ -24,13 +24,6 @@ title: Patria
 </div>
 {% endif %}
 
-{% if paginator.total_pages > 1 %}
-<div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">← Newer</a>
-  {% endif %}
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">Older →</a>
-  {% endif %}
+<div class="see-all-cta">
+  <a href="{{ '/articles' | relative_url }}" class="see-all-btn">See all articles →</a>
 </div>
-{% endif %}
