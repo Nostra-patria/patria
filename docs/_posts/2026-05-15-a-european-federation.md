@@ -13,7 +13,7 @@ image: /patria/assets/img/articles/2026-05-15-a-european-federation-header.png
 
 ## The Administrative Fix
 
-The 2004 attempt to establish a formal Constitution for Europe failed because the ratification process ignored the absence of a unified European public sphere [EPRS Briefing](https://www.europarl.europa.eu/RegData/etudes/BRIE/2024/760354/EPRS_BRI(2024)760354_EN.pdf). The subsequent Lisbon Treaty of 2007 was a technical compromise. It preserved the institutional architecture—the permanent President of the European Council and the High Representative—but removed the constitutional language and symbols of statehood. This created a "functional but identity-less" structure: a union of states that governs citizens without being a state itself [Journal of Common Market Studies](https://www.europeansources.info/record/when-failure-isnt-failure-european-union-constitutionalism-after-the-lisbon-treaty/).
+The 2004 attempt to establish a formal Constitution for Europe failed because the ratification process ignored the absence of a unified European public sphere [EPRS Briefing](https://www.europarl.europa.eu/RegData/etudes/BRIE/2024/760354/EPRS_BRI(2024)760354_EN.pdf). The failures in France and the Netherlands demonstrated that the "European demos" did not yet exist. The subsequent Lisbon Treaty of 2007 was a technical compromise. It preserved the institutional architecture—the permanent President of the European Council and the High Representative—but removed the constitutional language and symbols of statehood. This created a "functional but identity-less" structure: a union of states that governs citizens without being a state itself [Journal of Common Market Studies](https://www.europeansources.info/record/when-failure-isnt-failure-european-union-constitutionalism-after-the-lisbon-treaty/).
 
 This identity gap is no longer a theoretical concern. In 2026, the structural friction is a strategic liability. German Chancellor Friedrich Merz has stated that the "rules-based order no longer exists," while Mario Draghi notes that the United States now views European political fragmentation as a direct American interest. Coordination between twenty-seven capitals is an administrative tool. It is not a strategy for global competitiveness.
 
@@ -28,12 +28,6 @@ This institutional shift is the cornerstone of the Union of European Federalists
 The path to a federal executive is obstructed by structural divisions between member states regarding fiscal and judicial sovereignty. A persistent tension exists between "frugal" states and those advocating for a "Hamiltonian" model of common debt and investment. Similarly, the establishment of a supreme federal judicial authority remains contested, as divergent rule-of-law interpretations in Hungary and Poland create friction in the legal architecture.
 
 In defense, the transition from national armies to a unified federal command is hindered by national prestige and divergent strategic priorities. However, the calculus is shifting. Germany increasingly views federalization as a pragmatic necessity rather than an ideological choice. The German nation-state is too small to act as a global player, and a fragmented EU cannot function as a superpower [Europe Reloaded](https://www.europereloaded.com/end-nation-states-germany-seeks-eu-federalization/). National interest is aligning with federal logic.
-
-## The Legacy of the Constitutional Failure
-
-The current institutional deadlock stems from the 2004 attempt to establish a formal Constitution for Europe. That effort failed because the ratification process ignored the absence of a unified European public sphere [EPRS Briefing](https://www.europarl.europa.eu/RegData/etudes/BRIE/2024/760354/EPRS_BRI(2024)760354_EN.pdf). The failures in France and the Netherlands demonstrated that the "European demos" did not yet exist.
-
-The 2007 Lisbon Treaty acted as a technical workaround. It imported the functional powers of the failed constitution—such as the permanent President of the European Council—but stripped away the constitutional language and symbols of statehood. This created a system where the EU is functionally powerful in economic and legal regulation but lacks the democratic legitimacy of a state [Journal of Common Market Studies](https://www.europeansources.info/record/when-failure-isnt-failure-european-union-constitutionalism-after-the-lisbon-treaty/). It is a union of states that governs citizens without being a state. The gap between administrative power and political identity is the primary structural vulnerability.
 
 ## The Sovereignty Choice
 
@@ -52,7 +46,7 @@ post4: |
   The solution is a three-branched model: a clear Executive, Legislative, and Judicial branch. Moving from a union of states to a union of citizens is the only way to regain global agency.
 post5: |
   Full article:
-  https://nostra-patria.github.io/patria/articles/2026-05-15-a-european-federation/
+  https://nostra-patria.github.io/patria/articles/2026/05/15-a-european-federation/
 
   #EUPolitics #EuropeanFederation #Sovereignty
 -->
