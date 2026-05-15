@@ -105,10 +105,24 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* --- Hero (homepage) -------------------------------------- */
 .site-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   border-bottom: 1px solid var(--border);
   padding: 3rem 1.5rem 2.5rem;
   text-align: center;
   background: linear-gradient(180deg, #09131e 0%, var(--bg) 100%);
+}
+
+/* Subtle background image — placed at /assets/img/hero-bg.jpg when ready */
+.site-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/patria/assets/img/hero-bg.jpg') center 30% / cover no-repeat;
+  opacity: 0.08;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .hero-eyebrow {
@@ -713,6 +727,111 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--text-muted);
   line-height: 1.8;
   margin-bottom: 1.25rem;
+}
+
+/* --- Newsletter section ----------------------------------- */
+.newsletter-section {
+  background: var(--bg-header);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.newsletter-inner {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.newsletter-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.newsletter-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-sub {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.newsletter-field {
+  display: flex;
+  gap: 0;
+  max-width: 420px;
+  margin: 0 auto 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+
+.newsletter-field:focus-within {
+  border-color: var(--gold-dim);
+}
+
+.newsletter-field input[type="email"] {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+.newsletter-field input[type="email"]::placeholder {
+  color: var(--text-dim);
+}
+
+.newsletter-field button {
+  background: var(--gold);
+  border: none;
+  color: var(--bg);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  transition: background var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.newsletter-field button:hover {
+  background: var(--gold-dim);
+}
+
+.newsletter-gdpr {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.newsletter-gdpr a {
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+}
+
+.newsletter-gdpr a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold-dim);
 }
 
 /* --- Footer ----------------------------------------------- */

@@ -5,6 +5,15 @@ url: "https://nostra-patria.github.io"
 lang: en
 theme: null
 
+# Social preview fallback (used by jekyll-seo-tag when page has no image)
+logo: /patria/assets/img/bluesky-card.png
+
+# Social links (used by jekyll-seo-tag for structured data)
+social:
+  name: Patria
+  links:
+    - https://bsky.app/profile/nostrapatria.bsky.social
+
 # Build
 future: true
 markdown: kramdown

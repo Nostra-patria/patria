@@ -27,3 +27,23 @@ title: Patria
 <div class="see-all-cta">
   <a href="{{ '/articles' | relative_url }}" class="see-all-btn">See all articles →</a>
 </div>
+
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <p class="newsletter-eyebrow">Stay informed</p>
+    <h2 class="newsletter-title">European analysis,<br>directly in your inbox.</h2>
+    <p class="newsletter-sub">No noise. One article at a time. Free.</p>
+    <!-- Buttondown: sign up at buttondown.email and replace 'nostrapatria' with your username -->
+    <form class="newsletter-form"
+      action="https://buttondown.email/api/emails/embed-subscribe/nostrapatria"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.email/nostrapatria', 'popupwindow')">
+      <div class="newsletter-field">
+        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+        <button type="submit">Subscribe</button>
+      </div>
+      <p class="newsletter-gdpr">No spam. Unsubscribe any time. Powered by <a href="https://buttondown.email" target="_blank" rel="noopener">Buttondown</a> — GDPR compliant.</p>
+    </form>
+  </div>
+</section>
