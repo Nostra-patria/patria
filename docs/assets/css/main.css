@@ -114,13 +114,13 @@ img { max-width: 100%; height: auto; display: block; }
   background: linear-gradient(180deg, #09131e 0%, var(--bg) 100%);
 }
 
-/* Subtle background image — placed at /assets/img/hero-bg.jpg when ready */
+/* Subtle skyline silhouette at bottom of hero */
 .site-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/patria/assets/img/hero-bg.jpg') center 30% / cover no-repeat;
-  opacity: 0.08;
+  background: url('/patria/assets/img/hero-bg.jpg') center bottom / cover no-repeat;
+  opacity: 0.15;
   z-index: -1;
   pointer-events: none;
 }
