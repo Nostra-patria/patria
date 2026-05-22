@@ -5,6 +5,7 @@ date: 2026-05-22
 category: current_affairs
 slug: p3-2026-05-22-nato-helsingborg
 summary: "The NATO Foreign Ministers' Meeting in Helsingborg marked the moment European allies moved from seeking American assurances to building structural capacity. The real story: EU defence instruments entered NATO ministerial language for the first time."
+image: /patria/assets/img/articles/p3-2026-05-22-nato-helsingborg-header.png
 ---
 
 On 21 May 2026, Sweden hosted a NATO Foreign Ministers' meeting for the first time. Twenty-six months after joining the Alliance, Sweden's first ministerial hosting was also the one at which Europe's NATO allies arrived with a new posture. Not confrontational. Not declaratory. Structural.
