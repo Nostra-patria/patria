@@ -4,7 +4,7 @@ title: "Technical Stabilization: The EU's Shift from Democracy Support to Securi
 date: 2026-05-25
 star: null
 star_label: "Current Affairs"
-slug: p3-2026-05-25-western-balkans-csdp
+slug: western-balkans-csdp
 summary: "The EU is pivoting toward a security-first stabilization model in the Western Balkans, prioritizing technical CSDP cooperation and conditional funding over traditional democratic integration."
 image: /patria/assets/img/articles/p3-2026-05-25-western-balkans-csdp-header.png
 ---
