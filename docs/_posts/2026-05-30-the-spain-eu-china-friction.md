@@ -6,7 +6,7 @@ star: null
 star_label: "Current Affairs"
 slug: the-spain-eu-china-friction
 summary: "Spain's pursuit of a bilateral 'bridge' with China creates a structural fault line that undermines the EU's collective de-risking strategy."
-image: /patria/assets/img/p3-2026-05-30-the-spain-eu-china-friction-header.png
+image: /patria/assets/img/articles/p3-2026-05-30-the-spain-eu-china-friction-header.png
 ---
 
 **Madrid is attempting to position itself as the primary intermediary between Brussels and Beijing, a strategy that effectively neutralizes the European Union's collective bargaining power in trade defense.**
